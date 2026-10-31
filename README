@@ -1,0 +1,79 @@
+# MACHINE LEARNING PROJECT TASK
+# Customer Spending Prediction using Pipeline and ColumnTransformer
+### 1. Business Scenario
+You are working as a Machine Learning Engineer for ShopSmart, an e-commerce company. The company has customer information such as age, annual income, website visits, purchase history, membership type, and preferred product category. Its marketing team wants to estimate how much a customer may spend so it can plan more relevant offers and campaigns.
+At present, the company uses the same marketing strategy for all customers. This can waste marketing budget and miss opportunities to serve customers better. Your task is to build and compare multiple machine learning models that predict a customer’s spending amount.
+######  2. Objective
+Develop a complete machine learning workflow that preprocesses numerical and categorical features, trains multiple regression models, evaluates their performance, and uses the selected model to predict spending for a new customer.
+### 3. Dataset Description
+Use a suitable customer dataset containing the columns below. If a dataset has not been provided, create or obtain a CSV file with realistic sample records. The target column must be Amount_Spent.
+Column	Type	Description
+Age	Numerical	Customer age
+Annual_Income	Numerical	Customer annual income
+Website_Visits	Numerical	Number of website visits per month
+Previous_Purchases	Numerical	Number of previous purchases
+Membership_Type	Categorical	Bronze, Silver, or Gold
+Preferred_Category	Categorical	Electronics, Fashion, Home, or Beauty
+City_Tier	Categorical	Tier 1, Tier 2, or Tier 3
+Discount_Used	Categorical	Yes or No
+Amount_Spent	Numerical target	Customer spending amount to predict
+
+Problem type: Regression, because Amount_Spent is a continuous numerical value.
+### 4. Tasks to Complete
+Task 1 — Load and inspect the data
+•	Load the CSV file using Pandas.
+•	Inspect the first rows, shape, column names, data types, and summary statistics.
+•	Check for missing values and duplicate records; handle them appropriately.
+Task 2 — Prepare features and target
+•	Set Amount_Spent as the target variable y.
+•	Use all other appropriate columns as input features X.
+•	Split the data into training and testing sets using train_test_split.
+•	Use a fixed random_state so the model comparisons are fair and reproducible.
+Task 3 — Build preprocessing with ColumnTransformer
+•	Identify numerical and categorical feature columns.
+•	Apply StandardScaler to numerical columns.
+•	Apply OneHotEncoder to categorical columns. Configure it to handle previously unseen categories.
+•	Combine these transformations using ColumnTransformer.
+•	If the data contains missing values, consider SimpleImputer within the relevant preprocessing pipelines.
+Task 4 — Train multiple models using Pipeline
+•	Create a scikit-learn Pipeline that combines the preprocessing step and a regression model.
+•	Train each of the following models using the same preprocessing approach:
+•	• LinearRegression
+•	• Ridge
+•	• Lasso
+•	• RandomForestRegressor
+•	Fit each pipeline using only the training data.
+Task 5 — Evaluate and compare models
+•	Generate predictions on the test set for every trained pipeline.
+•	Calculate MAE, MSE and R² score for each model.
+•	Store the results in a Pandas DataFrame and compare model performance.
+•	Choose the best model based on the evaluation results and explain your choice.
+Task 6 — Predict for a new customer
+•	Use the selected trained pipeline to predict spending for a new customer.
+•	Use these example inputs: Age=32, Annual_Income=800000, Website_Visits=12, Previous_Purchases=8, Membership_Type=Gold, Preferred_Category=Electronics, City_Tier=Tier 1, Discount_Used=Yes.
+•	Display the predicted spending amount. The prediction will depend on your dataset and trained model.
+
+### 5. Technical Requirements
+•	Use ColumnTransformer to apply different preprocessing to numerical and categorical columns.
+•	Use Pipeline to combine preprocessing and model training.
+•	Fit preprocessing only on the training data by fitting the complete pipeline on X_train. Do not preprocess the full dataset before splitting.
+•	Use the same train-test split for all models.
+•	Report all four evaluation metrics in a comparison table.
+•	Ensure the final pipeline can process raw input features in the same format as the original dataset.
+### 6. Expected Deliverables
+•	A Jupyter Notebook (.ipynb) containing the complete workflow and explanations.
+•	A model performance dict with R² score of each model.
+•	A final prediction for the example customer.
+•	A short conclusion identifying the selected model and explaining why it was selected.
+
+
+
+### git commands
+1. git init
+2. git remote add origin "repo link"
+3. git checkout -b main
+4. git pull origin main
+5. git status
+6. git add
+7. git commit -m "message"
+8. git push -u origin main
